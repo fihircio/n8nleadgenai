@@ -1,0 +1,22 @@
+{
+    "name": "tcja/nowpayments-laravel",
+    "description": "NOWPayments integration for Laravel 11, similar to Laravel Cashier",
+    "type": "library",
+    "version": "1.0.0",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tcja\\NOWPaymentsLaravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tcja\\NOWPaymentsLaravel\\NOWPaymentsServiceProvider"
+            ]
+        }
+    }
+}
