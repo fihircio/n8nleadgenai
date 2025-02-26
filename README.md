@@ -37,10 +37,6 @@ For support, feature requests, or custom development inquiries, please contact: 
 
 Please see the LICENSE.md file for full license details.
 
-## Important Notice
-
-The purchase of SaaShovel is non-refundable. Upon payment, customers gain access to the private GitHub repository containing the entire source code. Please ensure that the product meets your needs before making a purchase.
-
 ## Frequently Asked Questions
 
 For a list of frequently asked questions, please refer to our website or the documentation.
