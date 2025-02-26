@@ -40,3 +40,12 @@ Please see the LICENSE.md file for full license details.
 ## Frequently Asked Questions
 
 For a list of frequently asked questions, please refer to our website or the documentation.
+
+#### Credits
+SaaShovel incorporates several open-source packages under their respective licenses.
+
+#### PHP & Development Packages
+Laravel Framework © Taylor Otwell, Lmsqueezy © Dries Vints & Taylor Otwell, Filament © Filament, Livewire © Caleb Porzio, Spatie Laravel Permission © Spatie bvba info@spatie.be, DevDojo Auth © Tony Lea, Laravel Cookie Consent © 2023 Whitecube, Lara Zeus Sky & Wind © Lara Zeus (Ash), Filament Env Editor © GeoSot geo.sotis@gmail.com, Filament GA4 © bezhanSalleh bezhan_salleh@yahoo.com, FakerPHP © 2011 François Zaninotto et al. – [MIT License](https://opensource.org/licenses/MIT), PHPUnit © 2001-2024 Sebastian Bergmann – [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
+
+#### JavaScript/Frontend Packages
+Vite © 2019-present VoidZero Inc. & contributors, TailwindCSS © Tailwind Labs, Inc., Axios © 2014-present Matt Zabriskie & Collaborators, Autoprefixer & PostCSS © 2013 Andrey Sitnik <andrey@sitnik.ru> – [MIT License](https://opensource.org/licenses/MIT)
