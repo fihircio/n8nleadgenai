@@ -78,6 +78,7 @@
     "Confirm Your Password": "تأكيد كلمة المرور الخاصة بك",
     "Continue": "استمر",
     "Continue with ": "استمر مع ",
+    "Couldn’t find your account": "لم يتم العثور على حسابك",
     "Create": "إنشاء",
     "Create a new team to collaborate with others on projects.": "أنشئ فريقًا جديدًا للتعاون مع الآخرين في المشاريع.",
     "Create Account": "إنشاء حساب",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "ينتهي اشتراكك في ",
     "Your subscription is canceled but will remain active till ": "تم إلغاء اشتراكك ولكنه سيظل نشطًا حتى ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "اشتراكك غير مكتمل. يرجى الاتصال بنا، مع ذكر معرف اشتراكك: ",
-    "Your trial ends on: ": "تنتهي الفترة التجريبية الخاصة بك في: ",
-    "Couldn’t find your account": "لم يتم العثور على حسابك"
+    "Your trial ends on: ": "تنتهي الفترة التجريبية الخاصة بك في: "
 }

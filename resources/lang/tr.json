@@ -78,6 +78,7 @@
     "Confirm Your Password": "Şifrenizi Onaylayın",
     "Continue": "Devam Et",
     "Continue with ": "İle devam et ",
+    "Couldn’t find your account": "Hesabınız bulunamadı",
     "Create": "Oluştur",
     "Create a new team to collaborate with others on projects.": "Başkalarıyla projelerde işbirliği yapmak için yeni bir ekip oluşturun.",
     "Create Account": "Hesap Oluştur",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Aboneliğiniz şu tarihte sona eriyor: ",
     "Your subscription is canceled but will remain active till ": "Aboneliğiniz iptal edildi ancak şu tarihe kadar aktif kalacak: ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Aboneliğiniz eksik. Lütfen abonelik kimliğinizi belirterek bizimle iletişime geçin: ",
-    "Your trial ends on: ": "Deneme süreniz şu tarihte sona eriyor: ",
-    "Couldn’t find your account": "Hesabınız bulunamadı"
+    "Your trial ends on: ": "Deneme süreniz şu tarihte sona eriyor: "
 }

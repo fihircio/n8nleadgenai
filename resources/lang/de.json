@@ -78,6 +78,7 @@
     "Confirm Your Password": "Bestätigen Sie Ihr Passwort",
     "Continue": "Weiter",
     "Continue with ": "Weiter mit ",
+    "Couldn’t find your account": "Ihr Konto konnte nicht gefunden werden",
     "Create": "Erstellen",
     "Create a new team to collaborate with others on projects.": "Erstellen Sie ein neues Team, um mit anderen an Projekten zusammenzuarbeiten.",
     "Create Account": "Neues Konto registrieren",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Ihr Abonnement endet am ",
     "Your subscription is canceled but will remain active till ": "Ihr Abonnement ist gekündigt, bleibt aber aktiv bis ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Ihr Abonnement ist unvollständig. Bitte kontaktieren Sie uns unter Angabe Ihrer Abonnement-ID: ",
-    "Your trial ends on: ": "Ihre Testphase endet am: ",
-    "Couldn’t find your account": "Ihr Konto konnte nicht gefunden werden"
+    "Your trial ends on: ": "Ihre Testphase endet am: "
 }

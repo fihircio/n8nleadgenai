@@ -78,6 +78,7 @@
     "Confirm Your Password": "Confirme Sua Senha",
     "Continue": "Continuar",
     "Continue with ": "Continuar com ",
+    "Couldn’t find your account": "Não foi possível encontrar sua conta",
     "Create": "Criar",
     "Create a new team to collaborate with others on projects.": "Crie uma nova equipa para colaborar com outras pessoas em projetos.",
     "Create Account": "Criar Uma Conta",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Sua assinatura termina em ",
     "Your subscription is canceled but will remain active till ": "Sua assinatura foi cancelada, mas permanecerá ativa até ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Sua assinatura está incompleta. Por favor, entre em contato conosco, mencionando seu ID de assinatura: ",
-    "Your trial ends on: ": "Seu teste termina em: ",
-    "Couldn’t find your account": "Não foi possível encontrar sua conta"
+    "Your trial ends on: ": "Seu teste termina em: "
 }

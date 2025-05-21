@@ -78,6 +78,7 @@
     "Confirm Your Password": "Подтвердите ваш пароль",
     "Continue": "Продолжить",
     "Continue with ": "Продолжить с ",
+    "Couldn’t find your account": "Не удалось найти ваш аккаунт",
     "Create": "Создать",
     "Create a new team to collaborate with others on projects.": "Создайте новую команду для совместной работы над проектами.",
     "Create Account": "Создать аккаунт",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Ваша подписка заканчивается ",
     "Your subscription is canceled but will remain active till ": "Ваша подписка отменена, но останется активной до ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Ваша подписка неполная. Пожалуйста, свяжитесь с нами, указав ваш ID подписки: ",
-    "Your trial ends on: ": "Ваш пробный период заканчивается: ",
-    "Couldn’t find your account": "Не удалось найти ваш аккаунт"
+    "Your trial ends on: ": "Ваш пробный период заканчивается: "
 }

@@ -78,6 +78,7 @@
     "Confirm Your Password": "Confirm Your Password",
     "Continue": "Continue",
     "Continue with ": "Continue with ",
+    "Couldn’t find your account": "Couldn’t find your account",
     "Create": "Create",
     "Create a new team to collaborate with others on projects.": "Create a new team to collaborate with others on projects.",
     "Create Account": "Create Account",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Your subscription ends on ",
     "Your subscription is canceled but will remain active till ": "Your subscription is canceled but will remain active till ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ",
-    "Your trial ends on: ": "Your trial ends on: ",
-    "Couldn’t find your account": "Couldn’t find your account"
+    "Your trial ends on: ": "Your trial ends on: "
 }

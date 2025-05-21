@@ -78,6 +78,7 @@
     "Confirm Your Password": "پشتڕاستکردنەوەی وشەی نهێنیەکەت",
     "Continue": "بەردەوامبوون",
     "Continue with ": "بەردەوامبوون بە ",
+    "Couldn’t find your account": "ئه‌كاونته‌كه‌ت نه‌دۆزرایه‌وه‌",
     "Create": "دروستکردن",
     "Create a new team to collaborate with others on projects.": "دروستکردنی تیمێکی نوێ بۆ هاوکاری لەگەڵ کەسانی تر لەسەر پڕۆژەکان.",
     "Create Account": "هەژمار دروستبکە",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "بەشداریکەیەکت کۆتایی پێدەهێنێت لە ",
     "Your subscription is canceled but will remain active till ": "بەشداریکەیەکت هەڵوەشێندرابوو بەڵام چالاک دەبێت تاکو ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "بەشداریکەیەکت نەماوە. تکایە پەیوەندیمان پێوە بکە، ناسنامەی بەشداریکەیەکت باس بکە: ",
-    "Your trial ends on: ": "تاقیکردنەوەیەکت کۆتایی پێدەهێنێت لە: ",
-    "Couldn’t find your account": "ئه‌كاونته‌كه‌ت نه‌دۆزرایه‌وه‌"
+    "Your trial ends on: ": "تاقیکردنەوەیەکت کۆتایی پێدەهێنێت لە: "
 }

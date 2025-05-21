@@ -78,6 +78,7 @@
     "Confirm Your Password": "Bevestig uw wachtwoord",
     "Continue": "Doorgaan",
     "Continue with ": "Doorgaan met ",
+    "Couldn’t find your account": "Uw account kon niet worden gevonden",
     "Create": "Aanmaken",
     "Create a new team to collaborate with others on projects.": "Maak een nieuw team aan om met anderen aan projecten samen te werken.",
     "Create Account": "Account aanmaken",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Uw abonnement eindigt op ",
     "Your subscription is canceled but will remain active till ": "Uw abonnement is geannuleerd, maar blijft actief tot ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Uw abonnement is onvolledig. Neem contact met ons op en vermeld uw abonnements-ID: ",
-    "Your trial ends on: ": "Uw proefperiode eindigt op: ",
-    "Couldn’t find your account": "Uw account kon niet worden gevonden"
+    "Your trial ends on: ": "Uw proefperiode eindigt op: "
 }

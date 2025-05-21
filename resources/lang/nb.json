@@ -78,6 +78,7 @@
     "Confirm Your Password": "Bekreft passordet ditt",
     "Continue": "Fortsett",
     "Continue with ": "Fortsett med ",
+    "Couldn’t find your account": "Fant ikke kontoen din",
     "Create": "Opprett",
     "Create a new team to collaborate with others on projects.": "Lag et nytt team for å samarbeide med andre om prosjekter.",
     "Create Account": "Opprett konto",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Abonnementet ditt avsluttes den ",
     "Your subscription is canceled but will remain active till ": "Abonnementet ditt er kansellert, men vil forbli aktivt til ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Abonnementet ditt er ufullstendig. Vennligst kontakt oss og oppgi abonnements-ID: ",
-    "Your trial ends on: ": "Prøveperioden din avsluttes den: ",
-    "Couldn’t find your account": "Fant ikke kontoen din"
+    "Your trial ends on: ": "Prøveperioden din avsluttes den: "
 }

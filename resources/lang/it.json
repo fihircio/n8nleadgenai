@@ -78,6 +78,7 @@
     "Confirm Your Password": "Conferma la tua password",
     "Continue": "Continua",
     "Continue with ": "Continua con ",
+    "Couldn’t find your account": "Impossibile trovare il tuo account",
     "Create": "Crea",
     "Create a new team to collaborate with others on projects.": "Crea un nuovo team per collaborare con altri ai progetti.",
     "Create Account": "Crea Account",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "La tua sottoscrizione termina il ",
     "Your subscription is canceled but will remain active till ": "La tua sottoscrizione è annullata ma rimarrà attiva fino al ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "La tua sottoscrizione è incompleta. Per favore, contattaci menzionando il tuo ID sottoscrizione: ",
-    "Your trial ends on: ": "La tua prova termina il: ",
-    "Couldn’t find your account": "Impossibile trovare il tuo account"
+    "Your trial ends on: ": "La tua prova termina il: "
 }

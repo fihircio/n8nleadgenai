@@ -78,6 +78,7 @@
     "Confirm Your Password": "Potvrdite svoju lozinku",
     "Continue": "Nastavi",
     "Continue with ": "Nastavi s ",
+    "Couldn’t find your account": "Nije moguće pronaći vaš račun",
     "Create": "Stvori",
     "Create a new team to collaborate with others on projects.": "Izradite novi tim za suradnju na projektima.",
     "Create Account": "Izradi račun",
@@ -344,6 +345,5 @@
     "Your subscription ends on ": "Vaša pretplata završava ",
     "Your subscription is canceled but will remain active till ": "Vaša pretplata je otkazana, ali će ostati aktivna do ",
     "Your subscription is incomplete. Please contact us, mentioning your subscription ID: ": "Vaša pretplata je nepotpuna. Molimo kontaktirajte nas, navodeći svoj ID pretplate: ",
-    "Your trial ends on: ": "Vaše probno razdoblje završava: ",
-    "Couldn’t find your account": "Nije moguće pronaći vaš račun"
+    "Your trial ends on: ": "Vaše probno razdoblje završava: "
 }
