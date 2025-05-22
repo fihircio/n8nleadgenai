@@ -14,12 +14,12 @@ use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Devdojo\Auth\Models\User as AuthUser;
-use App\Billable;
 use LemonSqueezy\Laravel\Order;
 use Tcja\NOWPaymentsLaravel\Concerns\BillableNP;
 use Tcja\NOWPaymentsLaravel\Models\Payment;
+use Bavix\Wallet\Traits\HasWallet;
 
-class User extends /* Authenticatable */ AuthUser implements FilamentUser/* , MustVerifyEmail */
+class User extends /* Authenticatable */ AuthUser implements FilamentUser, \Bavix\Wallet\Interfaces\Wallet
 {
     use HasApiTokens;
     use HasFactory;
@@ -28,14 +28,15 @@ class User extends /* Authenticatable */ AuthUser implements FilamentUser/* , Mu
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use Billable;
     use BillableNP;
+    use HasWallet;
 
     public function canAccessPanel(Panel $panel): bool
     {
         if ($panel->getId() === 'admin') {
             return $this->hasRole('admin');
         }
+        return false;
     }
 
     public function LSOrders()
@@ -51,6 +52,30 @@ class User extends /* Authenticatable */ AuthUser implements FilamentUser/* , Mu
     public function isSocialite()
     {
         return empty($this->socialProviders()->first()) ? false : true;
+    }
+
+    /**
+     * Add coins to the user's wallet.
+     */
+    public function addCoins(int|float $amount, ?array $meta = []): \Bavix\Wallet\Models\Transaction
+    {
+        return $this->deposit($amount, $meta);
+    }
+
+    /**
+     * Subtract coins from the user's wallet.
+     */
+    public function subtractCoins(int|float $amount, ?array $meta = []): \Bavix\Wallet\Models\Transaction
+    {
+        return $this->withdraw($amount, $meta);
+    }
+
+    /**
+     * Get the user's coin balance.
+     */
+    public function getCoinBalance(): int|float
+    {
+        return $this->balance;
     }
 
     /**

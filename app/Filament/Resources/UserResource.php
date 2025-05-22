@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TextInputColumn;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource
@@ -58,6 +59,9 @@ class UserResource extends Resource
                 TextColumn::make('roles.name')->label('Roles')->sortable(),
                 TextColumn::make('created_at')->sortable()->dateTime(),
                 TextColumn::make('updated_at')->sortable()->dateTime(),
+                TextColumn::make('balance')
+                    ->label('Coin Balance')
+                    ->getStateUsing(fn($record) => $record->getCoinBalance()),
             ])
             ->filters([
                 // Define filters here if needed

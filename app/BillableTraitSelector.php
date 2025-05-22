@@ -28,14 +28,18 @@ class BillableTraitSelector
      */
     public static function selectTrait()
     {
+        if (trait_exists('App\\Billable', false)) {
+            // Alias already exists, do nothing
+            return;
+        }
         $provider = config('saashovel.BILLING_PROVIDER');
 
         if ($provider === 'paddle') {
-            class_alias(\Laravel\Paddle\Billable::class, 'App\Billable');
+            class_alias(\Laravel\Paddle\Billable::class, 'App\\Billable');
         } elseif ($provider === 'lemonsqueezy') {
-            class_alias(\LemonSqueezy\Laravel\Billable::class, 'App\Billable');
+            class_alias(\LemonSqueezy\Laravel\Billable::class, 'App\\Billable');
         } else {
-            class_alias(\Laravel\Cashier\Billable::class, 'App\Billable');
+            class_alias(\Laravel\Cashier\Billable::class, 'App\\Billable');
         }
     }
 }

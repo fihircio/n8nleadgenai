@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('paddle_transactions', function (Blueprint $table) {
             $table->id();
             $table->morphs('billable');
             $table->string('paddle_id')->unique();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('paddle_transactions');
     }
 };
