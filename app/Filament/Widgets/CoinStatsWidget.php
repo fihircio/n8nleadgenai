@@ -24,4 +24,10 @@ class CoinStatsWidget extends Widget
             'last_transaction' => WalletTransaction::latest()->first(),
         ];
     }
+
+    public function render(): \Illuminate\Contracts\View\View
+    {
+        $data = $this->getData();
+        return view(static::$view, $data);
+    }
 }

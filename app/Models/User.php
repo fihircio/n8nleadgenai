@@ -81,10 +81,11 @@ class User extends /* Authenticatable */ AuthUser implements FilamentUser, \Bavi
 
     /**
      * Fetch wallet transactions for this user.
+     * Override to match Bavix\Wallet\Interfaces\Wallet signature.
      */
-    public function transactions()
+    public function transactions(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
-        return $this->wallet->transactions();
+        return $this->morphMany(\Bavix\Wallet\Models\Transaction::class, 'payable');
     }
 
     /**

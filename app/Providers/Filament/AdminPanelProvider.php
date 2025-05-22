@@ -51,6 +51,9 @@ class AdminPanelProvider extends PanelProvider
             ]);
         }
 
+        $widgets[] = \App\Filament\Widgets\CoinStatsWidget::class;
+        $widgets[] = \App\Filament\Widgets\CoinFlowChartWidget::class;
+
         $contact = WindPlugin::make()
         ->navigationGroupLabel('Contact')
         ->windPrefix('contact')
