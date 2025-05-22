@@ -35,6 +35,10 @@
                 <li>Platinum Feature (100 coins): <a href="/premium/platinum" class="text-blue-600 underline">Access</a></li>
             </ul>
         </div>
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-2">Trigger Coin-Gated Automation</h2>
+            @livewire('coin-automation-trigger')
+        </div>
     </div>
 @endsection
 

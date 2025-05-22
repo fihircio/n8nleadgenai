@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'n8n' => [
+        'webhook_url' => env('N8N_WEBHOOK_URL', 'http://n8n:5678/webhook/coin-gated'),
+        'secret' => env('N8N_WEBHOOK_SECRET', 'changeme'),
+    ],
+
 ];

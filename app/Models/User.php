@@ -19,6 +19,7 @@ use Tcja\NOWPaymentsLaravel\Concerns\BillableNP;
 use Tcja\NOWPaymentsLaravel\Models\Payment;
 use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Support\Str;
+use App\Models\AutomationResult;
 
 class User extends /* Authenticatable */ AuthUser implements FilamentUser, \Bavix\Wallet\Interfaces\Wallet
 {
@@ -154,5 +155,10 @@ class User extends /* Authenticatable */ AuthUser implements FilamentUser, \Bavi
     public function referrals()
     {
         return $this->hasMany(User::class, 'referred_by');
+    }
+
+    public function automationResults()
+    {
+        return $this->hasMany(AutomationResult::class);
     }
 }

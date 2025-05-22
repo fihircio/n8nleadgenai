@@ -1,0 +1,87 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "coin-gated",
+        "options": {}
+      },
+      "id": "Webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "const payload = $json;\n// Simulate extracting a LinkedIn profile or search query\nconst leadQuery = payload.data?.linkedin_query || 'No query provided';\nreturn [{\n  user_id: payload.user_id,\n  email: payload.email,\n  lead_query: leadQuery,\n  status: 'processing',\n  timestamp: new Date().toISOString()\n}];"
+      },
+      "id": "Function",
+      "name": "Parse Payload",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Simulate a LinkedIn lookup or automation\nconst lead = {\n  name: 'Jane Doe',\n  title: 'VP Marketing',\n  company: 'Acme Corp',\n  profile_url: 'https://linkedin.com/in/janedoe',\n  found: true\n};\nreturn [{\n  ...$json,\n  lead,\n  status: 'success'\n}];"
+      },
+      "id": "Function2",
+      "name": "Simulate LinkedIn Automation",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "responseMode": "lastNode",
+        "options": {
+          "responseData": "allEntries"
+        }
+      },
+      "id": "Respond",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1200, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Parse Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Payload": {
+      "main": [
+        [
+          {
+            "node": "Simulate LinkedIn Automation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simulate LinkedIn Automation": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "name": "Coin-Gated LeadGen Automation"
+}
