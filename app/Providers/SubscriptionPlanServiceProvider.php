@@ -31,12 +31,8 @@ class SubscriptionPlanServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Only proceed if migrations have run
-        if (!$this->migrationsHaveRun()) {
-            return;
-        }
-
-        $this->updatePlans();
+        // Temporarily disabled to allow cache clearing without DB connection
+        return;
     }
 
     protected function migrationsHaveRun(): bool

@@ -16,39 +16,43 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         // Create navigation
-        Navigation::create([
-            'name' => 'main',
-            'handle' => 'main',
-            'items' => [
-                Str::uuid()->toString() => [
-                    'label' => 'Features',
-                    'type' => 'external-link',
-                    'data' => [
-                        'url' => '/#features',
-                        'target' => null
+        Navigation::firstOrCreate(
+            [
+                'handle' => 'main'
+            ],
+            [
+                'name' => 'main',
+                'items' => [
+                    Str::uuid()->toString() => [
+                        'label' => 'Features',
+                        'type' => 'external-link',
+                        'data' => [
+                            'url' => '/#features',
+                            'target' => null
+                        ],
+                        'children' => []
                     ],
-                    'children' => []
-                ],
-                Str::uuid()->toString() => [
-                    'label' => 'Pricing',
-                    'type' => 'external-link',
-                    'data' => [
-                        'url' => '/#pricing',
-                        'target' => null
+                    Str::uuid()->toString() => [
+                        'label' => 'Pricing',
+                        'type' => 'external-link',
+                        'data' => [
+                            'url' => '/#pricing',
+                            'target' => null
+                        ],
+                        'children' => []
                     ],
-                    'children' => []
-                ],
-                Str::uuid()->toString() => [
-                    'label' => 'Contact',
-                    'type' => 'external-link',
-                    'data' => [
-                        'url' => '/contact',
-                        'target' => null
+                    Str::uuid()->toString() => [
+                        'label' => 'Contact',
+                        'type' => 'external-link',
+                        'data' => [
+                            'url' => '/contact',
+                            'target' => null
+                        ],
+                        'children' => []
                     ],
-                    'children' => []
                 ],
             ]
-        ]);
+        );
 
         // permissions array
         $permissions = [
@@ -63,7 +67,7 @@ class AdminUserSeeder extends Seeder
 
         // Create permissions
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
         // Create roles and assign permissions
@@ -91,9 +95,11 @@ class AdminUserSeeder extends Seeder
         $admin->assignRole('admin');
         $admin->ownedTeams()->save(Team::forceCreate([
             'user_id' => $admin->id,
-            'name' => 'Admin\'s Team',
-            'personal_team' => true,
+            'name' => "Admin's Team",
+            'personal_team' => true
         ]));
+        // Give admin coins
+        $admin->deposit(100, ['reason' => 'Initial seed coins']);
 
         // Create User user
         $user = User::create([
@@ -104,8 +110,10 @@ class AdminUserSeeder extends Seeder
         $user->assignRole('user');
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
-            'name' => 'User\'s Team',
-            'personal_team' => true,
+            'name' => "User's Team",
+            'personal_team' => true
         ]));
+        // Give user coins
+        $user->deposit(100, ['reason' => 'Initial seed coins']);
     }
 }

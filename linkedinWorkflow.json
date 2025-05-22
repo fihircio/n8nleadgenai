@@ -34,6 +34,20 @@
     },
     {
       "parameters": {
+        "requestMethod": "POST",
+        "url": "http://laravel:8000/api/automation/result",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "={{$json}}"
+      },
+      "id": "HTTPRequest",
+      "name": "Send Result to Laravel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [1150, 300]
+    },
+    {
+      "parameters": {
         "responseMode": "lastNode",
         "options": {
           "responseData": "allEntries"
@@ -43,7 +57,7 @@
       "name": "Respond to Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
-      "position": [1200, 300]
+      "position": [1400, 300]
     }
   ],
   "connections": {
@@ -70,6 +84,17 @@
       ]
     },
     "Simulate LinkedIn Automation": {
+      "main": [
+        [
+          {
+            "node": "Send Result to Laravel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Result to Laravel": {
       "main": [
         [
           {

@@ -15,3 +15,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/coins/withdraw', [CoinController::class, 'withdraw']);
     Route::post('/automation/trigger', [AutomationController::class, 'trigger']);
 });
+
+require __DIR__.'/coin_result_api.php';

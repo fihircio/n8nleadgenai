@@ -3,9 +3,9 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\TriggerN8nWorkflowJob;
 
 class CoinAutomationTrigger extends Component
 {
@@ -16,15 +16,21 @@ class CoinAutomationTrigger extends Component
     public function trigger()
     {
         $this->reset(['status', 'error']);
-        $response = Http::post('/api/automation/trigger', [
-            'data' => $this->data,
-        ]);
-        if ($response->successful()) {
-            $this->status = 'Workflow triggered!';
-        } else {
-            $this->error = $response->json('error') ?? 'Failed to trigger workflow.';
+        $user = Auth::user();
+        $cost = 10; // Example: cost per automation
+        if ($user->getCoinBalance() < $cost) {
+            $this->error = 'Not enough coins';
+            return;
         }
-        $this->emit('refreshCoinBalance');
+        $user->subtractCoins($cost, ['reason' => 'n8n automation trigger']);
+        $payload = [
+            'user_id' => $user->id,
+            'email' => $user->email,
+            'data' => $this->data,
+        ];
+        TriggerN8nWorkflowJob::dispatch($payload);
+        $this->status = 'Workflow triggered!';
+        $this->dispatch('refreshCoinBalance');
     }
 
     public function getAutomationResultsProperty()
