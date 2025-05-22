@@ -23,6 +23,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
+        $wasIncomplete = !$this->isProfileComplete($user);
+
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);
         }
@@ -36,6 +38,25 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'email' => $input['email'],
             ])->save();
         }
+
+        // Reward coins for profile completion (only once)
+        if ($wasIncomplete && $this->isProfileComplete($user)) {
+            // Only reward if not already rewarded
+            if (!$user->profile_completed_at) {
+                $user->addCoins(10, ['reason' => 'Profile completion']);
+                $user->profile_completed_at = now();
+                $user->save();
+            }
+        }
+    }
+
+    /**
+     * Determine if the user's profile is considered complete.
+     */
+    protected function isProfileComplete(User $user): bool
+    {
+        // You can adjust the logic for what counts as a complete profile
+        return !empty($user->name) && !empty($user->email) && $user->profile_photo_path;
     }
 
     /**

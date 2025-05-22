@@ -2,13 +2,18 @@
 
 use App\Http\Middleware\IsAjaxRequest;
 use App\Livewire\AfterAuth;
-use App\Livewire\Page\Dashboard\Dashboard;
 use App\Livewire\Page\Home\Home;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
+
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::get('/coins/history', function () {
+        return view('coins.history');
+    });
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -38,7 +43,9 @@ Route::middleware([
         return response()->json($data);
     })->middleware(IsAjaxRequest::class);
 
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::middleware(['auth'])->get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
     // Stripe billing route
     Route::get('/billing', function (Request $request) {
@@ -83,4 +90,33 @@ Route::middleware([
         $deleteUser->delete($request->user());
         return response()->json(['message' => 'USER_DELETED'], 200);
     })->middleware(IsAjaxRequest::class)->name('deleteUserSocialite');
+
+    // Premium routes
+    Route::middleware(['auth', 'coins:10'])->get('/premium/silver', function (\Illuminate\Http\Request $request) {
+        $user = $request->user();
+        // Deduct coins only if not already deducted for this session/feature
+        if (!session('silver_access_granted')) {
+            $user->subtractCoins(10);
+            session(['silver_access_granted' => true]);
+        }
+        return view('premium.silver');
+    });
+
+    Route::middleware(['auth', 'coins:50'])->get('/premium/gold', function (\Illuminate\Http\Request $request) {
+        $user = $request->user();
+        if (!session('gold_access_granted')) {
+            $user->subtractCoins(50);
+            session(['gold_access_granted' => true]);
+        }
+        return view('premium.gold');
+    });
+
+    Route::middleware(['auth', 'coins:100'])->get('/premium/platinum', function (\Illuminate\Http\Request $request) {
+        $user = $request->user();
+        if (!session('platinum_access_granted')) {
+            $user->subtractCoins(100);
+            session(['platinum_access_granted' => true]);
+        }
+        return view('premium.platinum');
+    });
 });

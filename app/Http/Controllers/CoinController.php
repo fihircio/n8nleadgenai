@@ -36,4 +36,20 @@ class CoinController extends Controller
         $user->subtractCoins($request->amount);
         return response()->json(['balance' => $user->getCoinBalance()]);
     }
+
+    // Get the authenticated user's coin transaction history
+    public function history(Request $request)
+    {
+        $user = $request->user();
+        $transactions = $user->transactions()->latest()->limit(50)->get()->map(function($tx) {
+            return [
+                'id' => $tx->id,
+                'type' => $tx->type,
+                'amount' => $tx->amount,
+                'meta' => $tx->meta,
+                'created_at' => $tx->created_at,
+            ];
+        });
+        return response()->json(['transactions' => $transactions]);
+    }
 }
