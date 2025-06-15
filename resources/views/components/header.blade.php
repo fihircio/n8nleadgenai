@@ -237,6 +237,11 @@
             {{-- <a href="page-url.test" class="{{ $menuLinkClass }}">Page name</a>
             <a href="page-url.test" class="{{ $menuLinkClass }}">Other page name</a> --}}
             <!-- /Site links -->
+            @auth
+                <a {{ when(config('saashovel.SPA_UX'), 'wire:navigate') }} href="{{ route('marketplace') }}" class="block py-2 {{ $menuLinkClass }}">
+                    {{ __('Marketplace') }}
+                </a>
+            @endauth
         </div></div>
     </nav>
 </header>

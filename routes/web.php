@@ -3,6 +3,7 @@
 use App\Http\Middleware\IsAjaxRequest;
 use App\Livewire\AfterAuth;
 use App\Livewire\Page\Home\Home;
+use App\Livewire\Page\Marketplace\WorkflowMarketplace;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -119,4 +120,6 @@ Route::middleware([
         }
         return view('premium.platinum');
     });
+
+    Route::middleware(['auth'])->get('/marketplace', WorkflowMarketplace::class)->name('marketplace');
 });
