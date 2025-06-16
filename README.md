@@ -15,6 +15,12 @@ SaaShovel is the ultimate TALL stack starter-kit designed to help you launch you
 - **Modern Authentication**: Sleek and secure authentication screens with social login integration and two-factor authentication.
 - **Permission Handling**: Powerful and flexible permission system integrated with Laravel's authentication.
 - **Component-Driven Page Crafting**: Curated collection of Blade components for swift development of professional-grade landing pages.
+- **Workflow Marketplace**: Users can browse, preview, and purchase n8n-powered workflow templates using their coin balance. Templates are categorized for easy discovery and can be managed by admins in real time.
+- **Coin-Powered Automation**: Flexible virtual coin system lets users unlock premium features and run automated workflows, with coin management available via API, dashboard, and admin panel.
+
+## Workflow Marketplace
+
+Empower your users to automate and scale their business processes! The Workflow Marketplace lets users spend coins to purchase and run ready-made n8n-powered workflows. Admins can easily add, edit, and categorize templates from the admin panel, and all changes are instantly reflected for users.
 
 ## Tech Stack
 
@@ -28,6 +34,7 @@ SaaShovel is the ultimate TALL stack starter-kit designed to help you launch you
 ## Getting Started
 
 Comprehensive documentation is provided to help you set up your app and start building your SaaS. You can find it here: [Getting Started Documentation](https://saashovel.com/documentation#Get-Started).
+- See the [COIN_FEATURE.md](./COIN_FEATURE.md) and [PROJECT_FLOW.md](./PROJECT_FLOW.md) files for details on the coin system and workflow marketplace.
 
 ## Support
 
