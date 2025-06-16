@@ -76,6 +76,19 @@ SaaShovel is a TALL stack SaaS starter kit with multi-provider billing, a virtua
 - Features: user management, coin management, content (posts, library, tags), analytics, environment editor, impersonation
 - Custom widgets: CoinStats, CoinFlowChart, Google Analytics (optional)
 
+## Admin Workflow Template Management
+
+- Admins can create, edit, and categorize workflow templates in the Filament admin panel (`/admin/workflow-templates`).
+- Each template includes: title, category, icon, description, coin cost, required inputs, and sample output.
+- Templates added or updated in the admin panel are immediately available in the user-facing marketplace.
+- Workflow templates can also be seeded for initial setup or testing (see `database/seeders/WorkflowTemplateSeeder.php`).
+
+## Dashboard Changes
+
+- The user dashboard now features a modern grid layout with cards for coin balance, referrals, transaction history, and premium features.
+- The Workflow Marketplace is embedded directly in the dashboard for easy access and discovery.
+- The old coin-gated automation trigger section has been removed; all workflow purchases now go through the marketplace.
+
 ## Billing & Subscription Flow
 - Supports Stripe, LemonSqueezy, Paddle, NOWPayments (crypto)
 - User selects plan (Livewire dashboard)
@@ -89,6 +102,16 @@ SaaShovel is a TALL stack SaaS starter kit with multi-provider billing, a virtua
 - Coin deduction on premium route access
 - Admin can adjust balances via panel
 - See `COIN_FEATURE.md` for details
+> **Note:** Coins are now primarily used for purchasing and running workflow templates from the marketplace, in addition to accessing premium content.
+
+## Workflow Marketplace
+
+- The Workflow Marketplace allows users to browse, preview, and purchase n8n-powered workflow templates using their coin balance.
+- Templates are organized into five categories: Sourcing, Enrichment, Outreach, Automation, and Reporting.
+- Each template displays its coin cost, description, and required inputs.
+- Users can preview a workflow (see inputs/outputs) and purchase/run it directly from the marketplace.
+- The marketplace is accessible via `/marketplace` or directly from the user dashboard.
+- All templates are managed by admins in the Filament admin panel and are synced in real-time to the marketplace.
 
 ## Notifications
 - Users notified of automation results (via Notification system)

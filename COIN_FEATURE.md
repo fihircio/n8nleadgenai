@@ -25,14 +25,25 @@ All endpoints require authentication (`auth:sanctum`).
 ---
 
 ## Admin Panel (Filament)
-- View all users' coin balances in the user table.
-- Edit a user's coin balance directly from the edit user page.
-- Set an initial coin balance when creating a user.
+
+- View and edit all users' coin balances.
+- Manage workflow templates: create, edit, set coin cost, and categorize templates for the marketplace.
+- All changes to workflow templates are reflected in the user-facing marketplace in real time.
+---
+
+## Workflow Marketplace Integration
+
+- Users spend coins to purchase and run automated workflows from the Workflow Marketplace.
+- Each workflow template displays its coin cost and deducts coins automatically upon purchase.
+- The marketplace is accessible from the dashboard or via `/marketplace`.
+- Templates are managed by admins in the Filament admin panel and can be seeded for initial setup.
 
 ---
 
 ## User UI
-- Users see their coin balance on their profile page.
+
+- Users see their coin balance and transaction history on the dashboard.
+- The dashboard embeds the Workflow Marketplace, allowing users to browse and purchase workflows using coins.
 - Users can refresh their balance without reloading the page.
 
 ---
@@ -53,6 +64,14 @@ All endpoints require authentication (`auth:sanctum`).
 ## Maintenance
 - Keep wallet package up to date.
 - Monitor for security advisories with `composer audit`.
+
+---
+
+## Workflow Template Seeder
+
+- Workflow templates can be seeded for initial setup or testing.
+- See `database/seeders/WorkflowTemplateSeeder.php` for examples.
+- Seeded templates are available in both the admin panel and the user-facing marketplace.
 
 ---
 
