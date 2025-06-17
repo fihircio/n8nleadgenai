@@ -70,7 +70,7 @@ All endpoints require authentication (`auth:sanctum`).
 ## Workflow Template Seeder
 
 - Workflow templates can be seeded for initial setup or testing.
-- See `database/seeders/WorkflowTemplateSeeder.php` for examples.
+- See `database/seeders/TemplateListingSeeder.php` for examples.
 - Seeded templates are available in both the admin panel and the user-facing marketplace.
 
 ---

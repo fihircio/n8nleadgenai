@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('workflow_templates', function (Blueprint $table) {
+        Schema::create('template_listings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('category');
@@ -23,6 +23,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('workflow_templates');
+        Schema::dropIfExists('template_listings');
     }
 };

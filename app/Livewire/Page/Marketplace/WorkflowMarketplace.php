@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Page\Marketplace;
 
-use App\Models\WorkflowTemplate;
+use App\Models\TemplateListing;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -22,15 +22,17 @@ class WorkflowMarketplace extends Component
 
     public $showModal = false;
     public $selectedTemplate = null;
+    public $filteredTemplates = [];
 
     public function selectCategory($category)
     {
         $this->activeCategory = $category;
+        $this->filteredTemplates = TemplateListing::where('category', $this->activeCategory)->get();
     }
 
     public function previewTemplate($id)
     {
-        $this->selectedTemplate = WorkflowTemplate::find($id);
+        $this->selectedTemplate = TemplateListing::find($id);
         $this->showModal = true;
     }
 
@@ -43,7 +45,7 @@ class WorkflowMarketplace extends Component
     #[Layout('layouts.app')]
     public function render()
     {
-        $filteredTemplates = WorkflowTemplate::where('category', $this->activeCategory)->get();
+        $filteredTemplates = TemplateListing::where('category', $this->activeCategory)->get();
         return view('livewire.pages.marketplace.workflow-marketplace', [
             'filteredTemplates' => $filteredTemplates,
         ]);

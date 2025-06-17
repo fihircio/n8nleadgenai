@@ -40,4 +40,12 @@ return [
         'secret' => env('N8N_WEBHOOK_SECRET', 'changeme'),
     ],
 
+    'openai' => [
+        'api_key' => env('OPENAI_API_KEY'),
+    ],
+
+    'elevenlabs' => [
+        'api_key' => env('ELEVENLABS_API_KEY'),
+    ],
+
 ];

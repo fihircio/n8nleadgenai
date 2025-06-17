@@ -71,49 +71,71 @@ class AdminUserSeeder extends Seeder
         }
 
         // Create roles and assign permissions
-        $adminRole = Role::create(['name' => 'admin']);
-        $adminRole->givePermissionTo(Permission::all());
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+        $adminRole->syncPermissions(Permission::all());
 
-        $userRole = Role::create(['name' => 'user']);
-        $userRole->givePermissionTo('access basic features');
+        $userRole = Role::firstOrCreate(['name' => 'user']);
+        $userRole->syncPermissions(['access basic features']);
 
-        $userRole = Role::create(['name' => 'premium-first-tier']);
-        $userRole->givePermissionTo(['access basic features', 'access premium features', 'access first tier features']);
+        $premiumFirstTier = Role::firstOrCreate(['name' => 'premium-first-tier']);
+        $premiumFirstTier->syncPermissions(['access basic features', 'access premium features', 'access first tier features']);
 
-        $userRole = Role::create(['name' => 'premium-second-tier']);
-        $userRole->givePermissionTo(['access basic features', 'access premium features', 'access first tier features', 'access second tier features']);
+        $premiumSecondTier = Role::firstOrCreate(['name' => 'premium-second-tier']);
+        $premiumSecondTier->syncPermissions(['access basic features', 'access premium features', 'access first tier features', 'access second tier features']);
 
-        $userRole = Role::create(['name' => 'premium-third-tier']);
-        $userRole->givePermissionTo(['access basic features', 'access premium features', 'access first tier features', 'access second tier features', 'access third tier features']);
+        $premiumThirdTier = Role::firstOrCreate(['name' => 'premium-third-tier']);
+        $premiumThirdTier->syncPermissions(['access basic features', 'access premium features', 'access first tier features', 'access second tier features', 'access third tier features']);
 
-        // Create Admin user
-        $admin = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('admin@admin.com')
-        ]);
-        $admin->assignRole('admin');
-        $admin->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $admin->id,
-            'name' => "Admin's Team",
-            'personal_team' => true
-        ]));
-        // Give admin coins
-        $admin->deposit(100, ['reason' => 'Initial seed coins']);
+        // Create Admin user if not exists
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@admin.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('admin@admin.com')
+            ]
+        );
+        
+        if (!$admin->hasRole('admin')) {
+            $admin->assignRole('admin');
+        }
 
-        // Create User user
-        $user = User::create([
-            'name' => 'User',
-            'email' => 'user@user.com',
-            'password' => Hash::make('user@user.com')
-        ]);
-        $user->assignRole('user');
-        $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => "User's Team",
-            'personal_team' => true
-        ]));
-        // Give user coins
-        $user->deposit(100, ['reason' => 'Initial seed coins']);
+        if (!$admin->ownedTeams()->exists()) {
+            $admin->ownedTeams()->save(Team::forceCreate([
+                'user_id' => $admin->id,
+                'name' => "Admin's Team",
+                'personal_team' => true
+            ]));
+        }
+
+        // Give admin coins if not already given
+        if ($admin->balance === 0) {
+            $admin->deposit(100, ['reason' => 'Initial seed coins']);
+        }
+
+        // Create User user if not exists
+        $user = User::firstOrCreate(
+            ['email' => 'user@user.com'],
+            [
+                'name' => 'User',
+                'password' => Hash::make('user@user.com')
+            ]
+        );
+
+        if (!$user->hasRole('user')) {
+            $user->assignRole('user');
+        }
+
+        if (!$user->ownedTeams()->exists()) {
+            $user->ownedTeams()->save(Team::forceCreate([
+                'user_id' => $user->id,
+                'name' => "User's Team",
+                'personal_team' => true
+            ]));
+        }
+
+        // Give user coins if not already given
+        if ($user->balance === 0) {
+            $user->deposit(100, ['reason' => 'Initial seed coins']);
+        }
     }
 }

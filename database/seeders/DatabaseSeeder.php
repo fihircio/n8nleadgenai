@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->withPersonalTeam()->create();
 
-        $this->call(AdminUserSeeder::class);
-        $this->call(WorkflowTemplateSeeder::class);
+        $this->call([
+            TemplateListingSeeder::class,
+            AdminUserSeeder::class,
+        ]);
     }
 }

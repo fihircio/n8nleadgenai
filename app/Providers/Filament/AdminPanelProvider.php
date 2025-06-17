@@ -25,7 +25,7 @@ use LaraZeus\Sky\Filament\Resources\PostResource;
 use LaraZeus\Sky\Filament\Resources\TagResource;
 use LaraZeus\Sky\SkyPlugin;
 use LaraZeus\Wind\WindPlugin;
-use App\Filament\Resources\WorkflowTemplateResource;
+use App\Filament\Resources\TemplateListingResource;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -120,7 +120,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->resources([
-                WorkflowTemplateResource::class,
+                TemplateListingResource::class,
             ]);
     }
 }

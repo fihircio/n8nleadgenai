@@ -20,6 +20,7 @@ use Tcja\NOWPaymentsLaravel\Models\Payment;
 use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Support\Str;
 use App\Models\AutomationResult;
+use App\Models\AiTemplate;
 
 class User extends /* Authenticatable */ AuthUser implements FilamentUser, \Bavix\Wallet\Interfaces\Wallet
 {
@@ -160,5 +161,10 @@ class User extends /* Authenticatable */ AuthUser implements FilamentUser, \Bavi
     public function automationResults()
     {
         return $this->hasMany(AutomationResult::class);
+    }
+
+    public function aiTemplates()
+    {
+        return $this->hasMany(AiTemplate::class);
     }
 }

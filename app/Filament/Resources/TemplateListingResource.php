@@ -2,20 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\WorkflowTemplateResource\Pages;
-use App\Models\WorkflowTemplate;
+use App\Filament\Resources\TemplateListingResource\Pages;
+use App\Models\TemplateListing;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class WorkflowTemplateResource extends Resource
+class TemplateListingResource extends Resource
 {
-    protected static ?string $model = WorkflowTemplate::class;
+    protected static ?string $model = TemplateListing::class;
     protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
     protected static ?string $navigationGroup = 'Marketplace';
-    protected static ?string $navigationLabel = 'Workflow Templates';
+    protected static ?string $navigationLabel = 'Templates Listing';
 
     public static function form(Form $form): Form
     {
@@ -68,9 +68,9 @@ class WorkflowTemplateResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListWorkflowTemplates::route('/'),
-            'create' => Pages\CreateWorkflowTemplate::route('/create'),
-            'edit' => Pages\EditWorkflowTemplate::route('/{record}/edit'),
+            'index' => Pages\ListTemplateListings::route('/'),
+            'create' => Pages\CreateTemplateListing::route('/create'),
+            'edit' => Pages\EditTemplateListing::route('/{record}/edit'),
         ];
     }
 }

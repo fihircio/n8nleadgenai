@@ -81,7 +81,7 @@ SaaShovel is a TALL stack SaaS starter kit with multi-provider billing, a virtua
 - Admins can create, edit, and categorize workflow templates in the Filament admin panel (`/admin/workflow-templates`).
 - Each template includes: title, category, icon, description, coin cost, required inputs, and sample output.
 - Templates added or updated in the admin panel are immediately available in the user-facing marketplace.
-- Workflow templates can also be seeded for initial setup or testing (see `database/seeders/WorkflowTemplateSeeder.php`).
+- Workflow templates can also be seeded for initial setup or testing (see `database/seeders/TemplateListingSeeder.php`).
 
 ## Dashboard Changes
 
