@@ -17,6 +17,7 @@ class WalletTransactionResource extends Resource
     protected static ?string $navigationLabel = 'Coin Transactions';
     protected static ?string $label = 'Coin Transaction';
     protected static ?string $pluralLabel = 'Coin Transactions';
+    protected static ?int $navigationSort = 1;
 
     public static function table(Table $table): Table
     {

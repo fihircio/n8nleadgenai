@@ -72,6 +72,8 @@
                         @else
                             <a {{ when(config('saashovel.SPA_UX'), 'wire:navigate') }} href="{{ route('dashboard') }}" class="{{ $menuLinkClass }}">{{ __('Dashboard') }}</a>
                         @endcan
+                     <!--   <a {{ when(config('saashovel.SPA_UX'), 'wire:navigate') }} href="{{ route('leads.ai-lead-scoring') }}" class="{{ $menuLinkClass }}">{{ __('AI Lead Scoring') }}</a>
+                        <a {{ when(config('saashovel.SPA_UX'), 'wire:navigate') }} href="{{ route('marketplace') }}" class="{{ $menuLinkClass }}">{{ __('Workflow Marketplace') }}</a>-->
                     @else
                         <a href="{{ route('login') }}" class="{{ $menuLinkClass }}">{{ __('Log in') }}</a>
                         @if (Route::has('register'))
@@ -239,7 +241,7 @@
             <!-- /Site links -->
             @auth
                 <a {{ when(config('saashovel.SPA_UX'), 'wire:navigate') }} href="{{ route('marketplace') }}" class="block py-2 {{ $menuLinkClass }}">
-                    {{ __('Marketplace') }}
+                    {{ __('Workflow Marketplace') }}
                 </a>
             @endauth
         </div></div>

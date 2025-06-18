@@ -16,8 +16,11 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->withPersonalTeam()->create();
 
         $this->call([
-            TemplateListingSeeder::class,
             AdminUserSeeder::class,
+            TemplateListingSeeder::class,
+            AiTemplateSeeder::class,
+            LeadSeeder::class,
+            AiLeadScoreSeeder::class,
         ]);
     }
 }

@@ -73,6 +73,10 @@
         <h2 class="text-2xl font-semibold mb-4">Workflow Marketplace</h2>
         @livewire('page.marketplace.workflow-marketplace')
     </div>
+    <div class="bg-white rounded shadow p-8">
+        <h2 class="text-2xl font-semibold mb-4">AI Lead Scoring</h2>
+        @livewire('page.leads.ai-lead-scoring')
+    </div>
 </div>
 @endsection
 

@@ -16,6 +16,7 @@ class TemplateListingResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
     protected static ?string $navigationGroup = 'Marketplace';
     protected static ?string $navigationLabel = 'Templates Listing';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

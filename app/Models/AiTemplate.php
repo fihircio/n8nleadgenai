@@ -12,20 +12,15 @@ class AiTemplate extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'name',
         'description',
         'prompt',
         'provider',
-        'template_data',
-        'variables',
         'is_active',
         'cost_in_coins',
     ];
 
     protected $casts = [
-        'template_data' => 'array',
-        'variables' => 'array',
         'is_active' => 'boolean',
         'cost_in_coins' => 'integer',
     ];
@@ -48,29 +43,28 @@ class AiTemplate extends Model
 
     protected function generateOpenAiContent(AiService $aiService, array $data): string
     {
-        $prompt = $this->template_data['prompt_template'];
+        $prompt = $this->prompt;
         foreach ($data as $key => $value) {
             $prompt = str_replace("{{$key}}", $value, $prompt);
         }
 
         return $aiService->generateOpenAiContent($prompt, [
-            'system_prompt' => $this->template_data['system_prompt'] ?? null,
-            'model' => $this->template_data['model'] ?? null,
-            'temperature' => $this->template_data['temperature'] ?? null,
+            'model' => 'gpt-4',
+            'temperature' => 0.7,
         ]);
     }
 
     protected function generateElevenLabsContent(AiService $aiService, array $data): string
     {
-        $text = $this->template_data['text_template'];
+        $text = $this->prompt;
         foreach ($data as $key => $value) {
             $text = str_replace("{{$key}}", $value, $text);
         }
 
-        return $aiService->generateElevenLabsVoice($text, $data['voice_id'], [
-            'model_id' => $this->template_data['model_id'] ?? null,
-            'stability' => $this->template_data['stability'] ?? null,
-            'similarity_boost' => $this->template_data['similarity_boost'] ?? null,
+        return $aiService->generateElevenLabsVoice($text, $data['voice_id'] ?? 'default', [
+            'model_id' => 'eleven_monolingual_v1',
+            'stability' => 0.5,
+            'similarity_boost' => 0.75,
         ]);
     }
 } 

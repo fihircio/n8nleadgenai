@@ -7,6 +7,7 @@ use App\Livewire\Page\Marketplace\WorkflowMarketplace;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Page\Leads\AiLeadScoring;
 
 Route::get('/', Home::class)->name('home');
 
@@ -44,7 +45,7 @@ Route::middleware([
         return response()->json($data);
     })->middleware(IsAjaxRequest::class);
 
-    Route::middleware(['auth'])->get('/dashboard', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
@@ -122,4 +123,11 @@ Route::middleware([
     });
 
     Route::middleware(['auth'])->get('/marketplace', WorkflowMarketplace::class)->name('marketplace');
+
+    // AI Lead Scoring routes
+    Route::middleware(['auth'])->group(function () {
+        // Regular user route - no coin requirement for viewing
+        Route::get('/leads/scoring', AiLeadScoring::class)
+            ->name('leads.ai-lead-scoring');
+    });
 });

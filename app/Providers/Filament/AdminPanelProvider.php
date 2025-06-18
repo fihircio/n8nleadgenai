@@ -73,7 +73,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            //->login()
+            ->login()
             ->spa()
             ->colors([
                 'primary' => Color::Amber,
@@ -121,6 +121,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resources([
                 TemplateListingResource::class,
-            ]);
+            ])
+            ->collapsibleNavigationGroups()
+            ->topNavigation();
     }
 }

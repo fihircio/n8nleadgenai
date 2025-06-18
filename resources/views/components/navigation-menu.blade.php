@@ -24,6 +24,12 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                <!--    <x-nav-link href="{{ route('leads.ai-lead-scoring') }}" :active="request()->routeIs('leads.ai-lead-scoring')">
+                        {{ __('AI Lead Scoring') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('marketplace') }}" :active="request()->routeIs('marketplace')">
+                        {{ __('Workflow Marketplace') }}
+                    </x-nav-link>-->
                 </div>
             </div>
 
