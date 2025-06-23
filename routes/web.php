@@ -4,6 +4,7 @@ use App\Http\Middleware\IsAjaxRequest;
 use App\Livewire\AfterAuth;
 use App\Livewire\Page\Home\Home;
 use App\Livewire\Page\Marketplace\WorkflowMarketplace;
+use App\Livewire\Page\AiTemplates\AiTemplateManager;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -89,7 +90,7 @@ Route::middleware([
 
     // Delete socialite user
     Route::post('/deleteUser', function (Request $request, \App\Actions\Jetstream\DeleteUser $deleteUser) {
-        $deleteUser->delete($request->user());
+        $request->user()->delete();
         return response()->json(['message' => 'USER_DELETED'], 200);
     })->middleware(IsAjaxRequest::class)->name('deleteUserSocialite');
 
@@ -124,10 +125,25 @@ Route::middleware([
 
     Route::middleware(['auth'])->get('/marketplace', WorkflowMarketplace::class)->name('marketplace');
 
+    // AI Templates route
+    Route::middleware(['auth'])->get('/ai-templates', AiTemplateManager::class)->name('ai-templates');
+
     // AI Lead Scoring routes
     Route::middleware(['auth'])->group(function () {
         // Regular user route - no coin requirement for viewing
         Route::get('/leads/scoring', AiLeadScoring::class)
             ->name('leads.ai-lead-scoring');
     });
+
+    Route::get('/analytics', function () {
+        return view('analytics');
+    })->name('analytics');
+
+    Route::get('/advanced-analytics', function () {
+        return view('advanced-analytics');
+    })->name('advanced-analytics');
+
+    Route::get('/conversions', function () {
+        return view('conversions');
+    })->name('conversions');
 });

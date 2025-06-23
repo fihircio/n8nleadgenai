@@ -10,9 +10,11 @@ class LeadSeeder extends Seeder
 {
     public function run(): void
     {
-        $user = User::first();
+        $admin = User::where('email', 'admin@admin.com')->first();
+        $user = User::where('email', 'user@user.com')->first();
 
-        $leads = [
+        // Admin leads
+        $adminLeads = [
             [
                 'name' => 'John Smith',
                 'email' => 'john.smith@techcompany.com',
@@ -42,7 +44,11 @@ class LeadSeeder extends Seeder
                 'source' => 'Referral',
                 'status' => 'new',
                 'notes' => 'Enterprise client, high potential'
-            ],
+            ]
+        ];
+
+        // User leads
+        $userLeads = [
             [
                 'name' => 'Emily Brown',
                 'email' => 'emily.b@smallbiz.com',
@@ -62,11 +68,43 @@ class LeadSeeder extends Seeder
                 'source' => 'Trade Show',
                 'status' => 'new',
                 'notes' => 'Large enterprise, multiple departments'
+            ],
+            [
+                'name' => 'Lisa Rodriguez',
+                'email' => 'lisa.r@consulting.com',
+                'phone' => '+1-555-0128',
+                'company' => 'Digital Consulting Group',
+                'title' => 'Managing Director',
+                'source' => 'LinkedIn',
+                'status' => 'new',
+                'notes' => 'Consulting firm, multiple clients'
+            ],
+            [
+                'name' => 'Alex Thompson',
+                'email' => 'alex.t@ecommerce.com',
+                'phone' => '+1-555-0129',
+                'company' => 'E-Commerce Ventures',
+                'title' => 'Founder',
+                'source' => 'Website',
+                'status' => 'new',
+                'notes' => 'Startup founder, scaling rapidly'
             ]
         ];
 
-        foreach ($leads as $lead) {
-            Lead::create(array_merge($lead, ['user_id' => $user->id]));
+        // Create admin leads
+        foreach ($adminLeads as $lead) {
+            Lead::updateOrCreate(
+                ['email' => $lead['email']],
+                array_merge($lead, ['user_id' => $admin->id])
+            );
+        }
+
+        // Create user leads
+        foreach ($userLeads as $lead) {
+            Lead::updateOrCreate(
+                ['email' => $lead['email']],
+                array_merge($lead, ['user_id' => $user->id])
+            );
         }
     }
 } 

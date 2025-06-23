@@ -66,6 +66,27 @@
                 </ul>
             </div>
         </div>
+        <!-- Analytics Dashboard -->
+        <div class="p-6 bg-purple-100 rounded shadow flex items-center col-span-1 md:col-span-2 lg:col-span-3">
+            <div class="text-purple-500 text-3xl mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div>
+                <div class="font-semibold">Analytics & Reporting</div>
+                <p class="text-sm text-gray-600 mb-2">Track your lead generation performance, conversion rates, and ROI</p>
+                <div class="flex space-x-2">
+                    <a href="{{ route('analytics') }}" class="inline-flex items-center px-3 py-1.5 bg-purple-600 text-white rounded-md hover:bg-purple-700 text-sm">
+                        Basic Analytics
+                    </a>
+                    <a href="{{ route('advanced-analytics') }}" class="inline-flex items-center px-3 py-1.5 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm">
+                        Advanced Analytics
+                    </a>
+                    <a href="{{ route('conversions') }}" class="inline-flex items-center px-3 py-1.5 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm">
+                        Conversion Tracking
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Workflow Marketplace Section -->
@@ -76,6 +97,11 @@
     <div class="bg-white rounded shadow p-8">
         <h2 class="text-2xl font-semibold mb-4">AI Lead Scoring</h2>
         @livewire('page.leads.ai-lead-scoring')
+    </div>
+    <!-- AI Templates Section -->
+    <div class="bg-white rounded shadow p-8">
+        <h2 class="text-2xl font-semibold mb-4">AI Templates</h2>
+        @livewire('page.ai-templates.ai-template-manager')
     </div>
 </div>
 @endsection

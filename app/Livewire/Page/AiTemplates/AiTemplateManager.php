@@ -3,8 +3,10 @@
 namespace App\Livewire\Page\AiTemplates;
 
 use App\Models\AiTemplate;
+use App\Models\Analytics;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
 
 class AiTemplateManager extends Component
@@ -29,6 +31,7 @@ class AiTemplateManager extends Component
         'is_active' => 'boolean'
     ];
 
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.pages.ai-templates.ai-template-manager', [
@@ -51,6 +54,14 @@ class AiTemplateManager extends Component
         $user->wallet->withdraw($template->cost_in_coins, [
             'reason' => "Purchase of AI template: {$template->name}"
         ]);
+
+        // Track template usage analytics
+        Analytics::trackTemplateUsage(
+            $user->id,
+            $template->id,
+            $template->cost_in_coins,
+            true
+        );
 
         // Generate content using the template
         $content = $template->generateContent([

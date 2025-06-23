@@ -24,12 +24,15 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                <!--    <x-nav-link href="{{ route('leads.ai-lead-scoring') }}" :active="request()->routeIs('leads.ai-lead-scoring')">
+                    <x-nav-link href="{{ route('leads.ai-lead-scoring') }}" :active="request()->routeIs('leads.ai-lead-scoring')">
                         {{ __('AI Lead Scoring') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('marketplace') }}" :active="request()->routeIs('marketplace')">
                         {{ __('Workflow Marketplace') }}
-                    </x-nav-link>-->
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('ai-templates') }}" :active="request()->routeIs('ai-templates')">
+                        {{ __('AI Templates') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -164,6 +167,15 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('leads.ai-lead-scoring') }}" :active="request()->routeIs('leads.ai-lead-scoring')">
+                {{ __('AI Lead Scoring') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('marketplace') }}" :active="request()->routeIs('marketplace')">
+                {{ __('Workflow Marketplace') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('ai-templates') }}" :active="request()->routeIs('ai-templates')">
+                {{ __('AI Templates') }}
             </x-responsive-nav-link>
         </div>
 

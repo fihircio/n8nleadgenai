@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             AiTemplateSeeder::class,
             LeadSeeder::class,
             AiLeadScoreSeeder::class,
+            CoinSeeder::class,
         ]);
     }
 }

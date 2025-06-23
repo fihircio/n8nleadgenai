@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Lead;
 use App\Models\User;
 use App\Models\AiLeadScore;
+use App\Models\Analytics;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -66,7 +67,7 @@ class AiLeadScoringService
             }
 
             // Create or update the AI score
-            return AiLeadScore::updateOrCreate(
+            $aiScore = AiLeadScore::updateOrCreate(
                 ['lead_id' => $lead->id],
                 [
                     'score' => min(100, $score), // Cap at 100
@@ -75,6 +76,22 @@ class AiLeadScoringService
                     'status' => 'completed'
                 ]
             );
+
+            // Track analytics
+            Analytics::trackLeadScore(
+                $user->id,
+                $aiScore->score,
+                [
+                    'lead_id' => $lead->id,
+                    'lead_email' => $lead->email,
+                    'lead_company' => $lead->company,
+                    'lead_title' => $lead->title,
+                    'coins_used' => $this->requiredCoins,
+                ]
+            );
+
+            return $aiScore;
+        
         } catch (\Exception $e) {
             Log::error('AI Lead Scoring failed', [
                 'lead_id' => $lead->id,
