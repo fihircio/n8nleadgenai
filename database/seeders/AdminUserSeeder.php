@@ -16,43 +16,39 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         // Create navigation
-        Navigation::firstOrCreate(
-            [
-                'handle' => 'main'
-            ],
-            [
-                'name' => 'main',
-                'items' => [
-                    Str::uuid()->toString() => [
-                        'label' => 'Features',
-                        'type' => 'external-link',
-                        'data' => [
-                            'url' => '/#features',
-                            'target' => null
-                        ],
-                        'children' => []
+        Navigation::create([
+            'name' => 'main',
+            'handle' => 'main',
+            'items' => [
+                Str::uuid()->toString() => [
+                    'label' => 'Features',
+                    'type' => 'external-link',
+                    'data' => [
+                        'url' => '/#features',
+                        'target' => null
                     ],
-                    Str::uuid()->toString() => [
-                        'label' => 'Pricing',
-                        'type' => 'external-link',
-                        'data' => [
-                            'url' => '/#pricing',
-                            'target' => null
-                        ],
-                        'children' => []
+                    'children' => []
+                ],
+                Str::uuid()->toString() => [
+                    'label' => 'Pricing',
+                    'type' => 'external-link',
+                    'data' => [
+                        'url' => '/#pricing',
+                        'target' => null
                     ],
-                    Str::uuid()->toString() => [
-                        'label' => 'Contact',
-                        'type' => 'external-link',
-                        'data' => [
-                            'url' => '/contact',
-                            'target' => null
-                        ],
-                        'children' => []
+                    'children' => []
+                ],
+                Str::uuid()->toString() => [
+                    'label' => 'Contact',
+                    'type' => 'external-link',
+                    'data' => [
+                        'url' => '/contact',
+                        'target' => null
                     ],
+                    'children' => []
                 ],
             ]
-        );
+        ]);
 
         // permissions array
         $permissions = [
