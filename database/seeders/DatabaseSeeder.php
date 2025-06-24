@@ -16,5 +16,11 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->withPersonalTeam()->create();
 
         $this->call(AdminUserSeeder::class);
+        $this->call(SubscriptionPlanSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(WarehouseSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(InventorySeeder::class);
+        $this->call(StockTransactionSeeder::class);
     }
 }

@@ -2,21 +2,13 @@
 
 use App\Http\Middleware\IsAjaxRequest;
 use App\Livewire\AfterAuth;
+use App\Livewire\Page\Dashboard\Dashboard;
 use App\Livewire\Page\Home\Home;
-use App\Livewire\Page\Marketplace\WorkflowMarketplace;
-use App\Livewire\Page\AiTemplates\AiTemplateManager;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Page\Leads\AiLeadScoring;
 
 Route::get('/', Home::class)->name('home');
-
-Route::middleware(['web', 'auth'])->group(function () {
-    Route::get('/coins/history', function () {
-        return view('coins.history');
-    });
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -46,9 +38,7 @@ Route::middleware([
         return response()->json($data);
     })->middleware(IsAjaxRequest::class);
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
     // Stripe billing route
     Route::get('/billing', function (Request $request) {
@@ -90,7 +80,11 @@ Route::middleware([
 
     // Delete socialite user
     Route::post('/deleteUser', function (Request $request, \App\Actions\Jetstream\DeleteUser $deleteUser) {
-        $request->user()->delete();
+        $deleteUser->delete($request->user());
         return response()->json(['message' => 'USER_DELETED'], 200);
     })->middleware(IsAjaxRequest::class)->name('deleteUserSocialite');
+
+    Route::get('/products', \App\Livewire\ProductIndex::class)->name('products.index');
+    Route::get('/products/create', \App\Livewire\ProductForm::class)->name('products.create');
+    Route::get('/products/{product}/edit', \App\Livewire\ProductForm::class)->name('products.edit');
 });
